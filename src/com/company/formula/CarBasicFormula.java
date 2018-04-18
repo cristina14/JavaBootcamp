@@ -1,4 +1,6 @@
-package com.company;
+package com.company.formula;
+
+import com.company.vehicle.Vehicle;
 
 public class CarBasicFormula implements Formula {
     @Override

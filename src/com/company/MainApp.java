@@ -1,5 +1,15 @@
 package com.company;
 
+import com.company.calculator.InsurancePolicyCalculator;
+import com.company.formula.BusBasicFormula;
+import com.company.formula.CarBasicFormula;
+import com.company.formula.Formula;
+import com.company.formula.TipperBasicFormula;
+import com.company.vehicle.Bus;
+import com.company.vehicle.Car;
+import com.company.vehicle.Tipper;
+import com.company.vehicle.Vehicle;
+
 public class MainApp
 {
 
