@@ -5,24 +5,16 @@ public class MainApp
 
     public static void main(String[] args) {
 
-       final Vehicle joesCar = new Car(5,200000,true, "auto");
-       final Vehicle steveBus = new Bus(3,100000,true,31);
-        final Vehicle petersTipper= new Tipper(6, 80000,false,15);
+       final Car joesCar = new Car(5,200000,true, "auto");
+       final Bus steveBus = new Bus(3,100000,true,31);
+        final Tipper petersTipper= new Tipper(6, 80000,false,15);
 
-        int joesInsurancePolicyCost= 100* joesCar.getAge();
-        joesInsurancePolicyCost += joesCar.isDiesel() ? 500 :0;
-        joesInsurancePolicyCost += joesCar.getNumberOfMiles() > 200000 ? 500 :0;
+        final InsurancePolicyCalculator calculator = InsurancePolicyCalculator.INSTANCE;
 
-        int stevesInsurancePolicyCost = 200*steveBus.getAge();
-        stevesInsurancePolicyCost += steveBus.isDiesel() ? 1000 : 0;
-        if(steveBus.getNumberOfMiles() > 200000)
-            stevesInsurancePolicyCost += 1000;
-        else
-            if(steveBus.getNumberOfMiles() > 100000)
-                stevesInsurancePolicyCost += 500;
+        final int joesInsurancePolicyCost = calculator.calculate(joesCar);
+        final int stevesInsurancePolicyCost = calculator.calculate(steveBus);
+        final int petersInsurancePolicyCost = calculator.calculate(petersTipper);
 
-        int petersInsurancePolicyCost = 300 * petersTipper.getAge();
-        petersInsurancePolicyCost += petersTipper.getNumberOfMiles() > 80000 ? 700 :0;
 
         System.out.println("Joe's policy cost is: "+ joesInsurancePolicyCost);
         System.out.println("Steve's policy cost is: "+ stevesInsurancePolicyCost);
