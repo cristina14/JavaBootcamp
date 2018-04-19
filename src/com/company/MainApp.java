@@ -1,10 +1,7 @@
 package com.company;
 
 import com.company.calculator.InsurancePolicyCalculator;
-import com.company.formula.BusBasicFormula;
-import com.company.formula.CarBasicFormula;
-import com.company.formula.Formula;
-import com.company.formula.TipperBasicFormula;
+import com.company.formula.*;
 import com.company.vehicle.Bus;
 import com.company.vehicle.Car;
 import com.company.vehicle.Tipper;
@@ -21,18 +18,20 @@ public class MainApp
 
         final InsurancePolicyCalculator calculator = InsurancePolicyCalculator.INSTANCE;
 
-        final Formula carBasicFormula = new CarBasicFormula();
-        final Formula busBasicFormula = new BusBasicFormula();
-        final Formula tipperBasicFormula = new TipperBasicFormula();
 
-
-        final int joesInsurancePolicyCost = calculator.calculate(joesCar,carBasicFormula);
-        final int stevesInsurancePolicyCost = calculator.calculate(steveBus,busBasicFormula);
-        final int petersInsurancePolicyCost = calculator.calculate(petersTipper,tipperBasicFormula);
+        final int joesInsurancePolicyCost = calculator.calculate(steveBus, Formula.CAR_BASIC_FORMULA);
+        final int stevesInsurancePolicyCost = calculator.calculate(steveBus,Formula.BUS__BASIC_FORMULA);
+        final int petersInsurancePolicyCost = calculator.calculate(petersTipper,Formula.TIPPER__BASIC_FORMULA);
 
 
         System.out.println("Joe's policy cost is: "+ joesInsurancePolicyCost);
         System.out.println("Steve's policy cost is: "+ stevesInsurancePolicyCost);
         System.out.println("Peter's policy cost is: "+ petersInsurancePolicyCost);
-    }
+
+
+       /* final String inputString="Ana has apples!";
+        System.out.println(applyStringFunction(StringFunction.TO_UPPER_FUNCTION, inputString));
+        System.out.println(applyStringFunction(StringFunction.TO_LOWER_FUNCTION, inputString));
+        System.out.println(applyStringFunction(StringFunction.REMOVE_CHAR_FUNCTION, inputString));
+    */}
 }
